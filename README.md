@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# GitHub User Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Application Specification
 
-Currently, two official plugins are available:
+This application is a GitHub user finder that allows users to search for GitHub accounts and view their repositories. Key features include:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for GitHub users by username
+- Display a list of users matching the search criteria
+- Show top repositories for each user
+- Repository details including name, description, and star count
+- Responsive and user-friendly interface
+- Pagination to load more search results
+- GitHub-inspired design
 
-## Expanding the ESLint configuration
+The application is built using:
+- React.js for the user interface
+- TypeScript for type-safety
+- Tanstack Query (React Query) for data and state management
+- Octokit for GitHub API access
+- Lucide React for icons
+- Tailwind CSS for styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Run the Application
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+- Node.js (version 16 or newer)
+- npm or yarn
+
+### Installation Steps
+
+1. Clone the repository
+```bash
+git clone https://github.com/username/github-user-finder.git
+cd github-user-finder
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies
+```bash
+npm install
+# or using yarn
+yarn install
 ```
+
+3. Create a .env file in the project root and add your GitHub Personal Access Token:
+
+```
+VITE_GITHUB_TOKEN=your_github_personal_access_token
+```
+
+4. Run the application in development mode
+```bash
+npm run dev
+# or using yarn
+yarn dev
+```
+
+5. Open your browser and navigate to `http://localhost:5173` (or another port shown in the terminal)
+
+### Building for Production
+
+To create a production build:
+```bash
+npm run build
+# or using yarn
+yarn build
+```
+
+The build output will be available in the `dist/` folder and ready to deploy to your hosting of choice.

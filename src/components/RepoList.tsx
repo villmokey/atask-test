@@ -53,7 +53,6 @@ const fetchUsers = async (username: string, page: number) => {
     console.error("Error fetching data:", error);
   }
 
-
 }
 
 export const RepoList = () => {
